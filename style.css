@@ -1,0 +1,217 @@
+/* ตั้งค่าพื้นฐาน */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f7f9fc;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* จัดตำแหน่งให้อยู่มุมขวาบน */
+.audio-control {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+/* ซ่อนตัว Checkbox จริงๆ ไว้ */
+.mute-checkbox {
+  display: none;
+}
+
+/* ตัวปุ่มวงกลม */
+.mute-button {
+  width: 50px;
+  height: 50px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* เงาจางๆ */
+  transition: all 0.3s ease;
+  font-size: 20px;
+  border: 2px solid #f0f0f0;
+}
+
+/* ตอนเอาเมาส์ไปชี้ ให้ลอยขึ้นนิดนึง */
+.mute-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* ตอนกดลงไป ให้ปุ่มยุบตัว */
+.mute-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* --- ตรรกะการเปลี่ยน Icon --- */
+
+/* ถ้าไม่ได้เช็ค (เปิดเสียง) ให้ซ่อนลำโพงแบบปิด */
+.mute-checkbox:not(:checked) + .mute-button .icon-off {
+  display: none;
+}
+
+/* ถ้าเช็คแล้ว (ปิดเสียง) ให้ซ่อนลำโพงแบบเปิด และเปลี่ยนสีปุ่ม */
+.mute-checkbox:checked + .mute-button {
+  background-color: #f8f9fa;
+  color: #adb5bd;
+}
+
+.mute-checkbox:checked + .mute-button .icon-on {
+  display: none;
+}
+
+.topic {
+    text-align: center;
+    position: absolute;
+    margin-top: -750px;
+}
+
+.topic h1 {
+      font-size: 35px;
+}
+
+/* ตัวการ์ดหลัก */
+.quiz-card {
+  width: 90%;
+  max-width: 400px;
+  border-radius: 25px;
+  overflow: hidden; /* เพื่อให้รูปด้านบนไม่ล้นขอบโค้ง */
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+/* ส่วนรูปภาพ */
+.image-container {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#cover-img {
+  width: 150px;
+  height: auto;
+  object-fit: cover; /* ปรับให้รูปเต็มพื้นที่โดยไม่เสียสัดส่วน */
+}
+
+/* ส่วนข้อความ */
+.content {
+  padding: 20px;
+}
+
+.handwritten-headline {
+  max-width: 300px;  /* ใหญ่สุดได้แค่นี้ (ลองปรับตัวเลขดู) */
+  width: 100%;       /* ให้หดตามขนาดจอถ้าจอเล็ก */
+  height: auto;
+  display: block;    /* เพื่อให้จัดกึ่งกลางได้ง่าย */
+  margin: 0 auto 15px; /* จัดกึ่งกลางหน้าจอ และเว้นระยะห่างด้านล่าง 15px */
+}
+
+.handwritten-headline2 {
+  max-width: 280px;  /* ใหญ่สุดได้แค่นี้ (ลองปรับตัวเลขดู) */
+  width: 50%;       /* ให้หดตามขนาดจอถ้าจอเล็ก */
+  height: auto;
+    transform: translateY(-45px);
+  display: block;    /* เพื่อให้จัดกึ่งกลางได้ง่าย */
+  margin: 0 auto 15px; /* จัดกึ่งกลางหน้าจอ และเว้นระยะห่างด้านล่าง 15px */
+}
+
+h1 {
+  font-size: 26px;
+  color: #2d3436;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+h1 span {
+  color: #6c5ce7; /* สีม่วงเท่ๆ */
+  font-size: 28px;
+}
+
+p {
+  color: #636e72;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* ส่วนปุ่ม */
+.action-group {
+  padding: 0 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* ระยะห่างระหว่างปุ่ม */
+}
+
+.btn {
+  padding: 15px;
+  border: none;
+  border-radius: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-start {
+  background-color: #3a3a3a;
+  color: white;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+.btn-start:hover {
+  background-color: #3a3a3a;
+  transform: scale(1.02);
+}
+
+.btn-support {
+  background-color: #f1f2f6;
+  color: #2d3436;
+  font-size: 14px;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+.btn-support:hover {
+  background-color: #dfe4ea;
+}
+
+.quiz-note {
+    position: absolute;
+    bottom: 110px;
+    font-size: 11px;      /* ขนาดเล็กๆ */
+    color: #35383f;      /* สีเทาจางๆ */
+    margin-top: 15px;    /* เว้นระยะห่างจากปุ่มบนนิดนึง */
+    line-height: 1.4;
+}
+
+.footer-text {
+    position: absolute;  /* ล็อคตำแหน่ง */
+    bottom: 20px;        /* ห่างจากขอบล่าง 20px */
+    width: 100%;
+    text-align: center;
+    font-size: 11px;
+    color: #95a5a6;
+    letter-spacing: 0.5px; /* เว้นวรรคตัวอักษรให้ดูหรูขึ้น */
+}
+
+
+
+
+
+
+.text {
+    position: absolute;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    margin-top: -250px;
+    text-align: center;
+    padding: 20px;
+}
